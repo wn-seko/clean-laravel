@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RootController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RootController::class, 'index']);
 
+Route::post('/communities/{community}/posts', [PostController::class, 'store']);
