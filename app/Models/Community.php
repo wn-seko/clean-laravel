@@ -14,7 +14,7 @@ class Community
 
     public function hasUser(User $user): bool
     {
-        var_dump($user);
+       // var_dump($user);
 //        return $this
 //            ->users()
 //            ->wherePivot('user_id', $user->id)
