@@ -14,7 +14,7 @@ class StoreAction
         // バグを防ぐために簡易的にアサーションを書く
         assert($user->exists);
         assert($community->exists);
-        assert(!$post->exists);
+        assert($post->exists);
 
         $userPostsCountToday = $user->countToday($community);
 

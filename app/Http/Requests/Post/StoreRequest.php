@@ -29,12 +29,15 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'title' => 'required|string|max:30',
+            'body' => 'required|string|max:10000',
         ];
     }
 
     public function makePost(): Post
     {
         // バリデーションした値で埋めた Post を取得
-        return new Post(...$this->validated());
+        $values = $this->validated();
+        return new Post("",$values['title'],$values['body'],'','');
     }
 }
