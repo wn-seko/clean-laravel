@@ -32,7 +32,7 @@ class PostController
 
         try {
             // ドメインバリデーションを呼び出す
-            return new PostResource($post->$action($user, $community, $post));
+            return new PostResource($post);
         } catch (PostLimitExceededException $e) {
             // 捕まえた例外はスタックトレースに積む
             throw new TooManyRequestsHttpException($e->getMessage(), $e);
