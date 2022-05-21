@@ -24,15 +24,19 @@ class PostController
      */
     public function store(StoreRequest $request, StoreAction $action): PostResource
     {
+        
     	$post = $request->makePost();
 
         // FIXME
         $user = new User('user-1', 'name', 'x', 'y');
         $community = new Community('community-1');
 
+        //var_dump($post);
+
         try {
             // ドメインバリデーションを呼び出す
-            return new PostResource($post->$action($user, $community, $post));
+            //return new PostResource($action($user, $community, $post));
+            return new PostResource($post);
         } catch (PostLimitExceededException $e) {
             // 捕まえた例外はスタックトレースに積む
             throw new TooManyRequestsHttpException($e->getMessage(), $e);

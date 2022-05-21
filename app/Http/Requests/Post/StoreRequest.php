@@ -37,6 +37,7 @@ class StoreRequest extends FormRequest
     public function makePost(): Post
     {
         // バリデーションした値で埋めた Post を取得
-        return new Post(...$this->validated());
+        $values = $this->validated();
+        return new Post("",$values['title'],$values['body'],'','');
     }
 }
